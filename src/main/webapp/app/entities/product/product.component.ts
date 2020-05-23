@@ -17,6 +17,7 @@ import { ProductDeleteDialogComponent } from './product-delete-dialog.component'
 })
 export class ProductComponent implements OnInit, OnDestroy {
   products?: IProduct[];
+  objetoprueba?: [] | any;
   eventSubscriber?: Subscription;
   totalItems = 0;
   itemsPerPage = ITEMS_PER_PAGE;
@@ -88,9 +89,21 @@ export class ProductComponent implements OnInit, OnDestroy {
     const modalRef = this.modalService.open(ProductDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
     modalRef.componentInstance.product = product;
   }
-
   add(product: IProduct): void {
-    console.warn('producto a guardar: ' + product.id);
+    console.warn('Producto seleccionado', product.id);
+    const productotodo = JSON.stringify(product);
+
+    console.warn('Producto todo', productotodo);
+    this.objetoprueba = {
+      id: product.id,
+      nombre: product.name,
+      cantidad: 1
+    };
+    /*
+    const productoid=product.id;
+    localStorage.setItem("productoId", product.name);
+
+   const priductoid= localStorage.getItem("productoId");*/
   }
 
   sort(): string[] {
