@@ -89,6 +89,10 @@ export class ProductComponent implements OnInit, OnDestroy {
     modalRef.componentInstance.product = product;
   }
 
+  add(product: IProduct): void {
+    console.warn('producto a guardar: ' + product.id);
+  }
+
   sort(): string[] {
     const result = [this.predicate + ',' + (this.ascending ? 'asc' : 'desc')];
     if (this.predicate !== 'id') {
